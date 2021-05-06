@@ -2,7 +2,7 @@
 
 // Create an instance
 var wavesurfer = Object.create(WaveSurfer);
-
+document.getElementById("displayA").innerHTML = "MAIN";
 // Init & load audio file
 document.addEventListener('DOMContentLoaded', function () {
     var options = {
