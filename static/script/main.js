@@ -47,23 +47,24 @@ document.addEventListener('DOMContentLoaded', function () {
     /* Regions */
 
      wavesurfer.on('ready', function() {
-         if (localStorage.regions) {
-            loadRegions(JSON.parse(localStorage.regions));
-        } else {
-            // loadRegions(
-            //     extractRegions(
-            //         wavesurfer.backend.getPeaks(512),
-            //         wavesurfer.getDuration()
-            //     )
-            // );
-            wavesurfer.util.ajax({
+//          if (localStorage.regions) {
+//             loadRegions(JSON.parse(localStorage.regions));
+//         } else {
+//             // loadRegions(
+//             //     extractRegions(
+//             //         wavesurfer.backend.getPeaks(512),
+//             //         wavesurfer.getDuration()
+//             //     )
+//             // );
+            
+//         }
+         wavesurfer.util.ajax({
                 responseType: 'json',
                 url: 'annotations.json'
             }).on('success', function (data) {
                 loadRegions(data);
                 saveRegions();
             });
-        }
      });
 
      wavesurfer.on('region-click', function (region, e) {
